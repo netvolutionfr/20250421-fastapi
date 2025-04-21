@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.egg-info/
+*.env
+.env
+.venv/
+venv/
+dist/
+build/
+
+# VS Code / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test / Coverage
+htmlcov/
+.coverage
+.tox/
+.nox/
+pytest_cache/
+*.http
+
+# SQLite DB (si utilisée)
+*.db
+*.sqlite3
+
+# Alembic
+alembic/versions/
+
+# Logs
+*.log
+
+# MacOS
+.DS_Store

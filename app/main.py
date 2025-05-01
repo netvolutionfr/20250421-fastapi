@@ -1,6 +1,7 @@
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.database import engine
 from app.models import Base
@@ -24,6 +25,10 @@ app = FastAPI(
     lifespan=lifespan
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"]
+)
 app.include_router(auth_router)
 app.include_router(products_router, prefix="/api/v1")
 app.include_router(categories_router, prefix="/api/v1")

@@ -35,7 +35,7 @@ pip install -r requirements.txt
 ## Lancer le serveur
 
 ```bash
-uvicorn main:app --reload
+uvicorn app.main:app --reload
 ```
 
 Accèder à la documentation interactive :

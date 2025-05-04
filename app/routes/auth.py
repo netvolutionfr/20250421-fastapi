@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status, Form
 from sqlalchemy.ext.asyncio import AsyncSession
 from jose import JWTError, jwt
-from datetime import datetime, timedelta, UTC
+from datetime import datetime, timedelta, timezone
 
 from app.database import get_db
 from app.models import User
@@ -18,7 +18,7 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
 
 def create_access_token(data: dict, expires_delta: int = None):
     to_encode = data.copy()
-    expire = datetime.now(UTC) + timedelta(minutes=expires_delta or settings.access_token_expire_minutes)
+    expire = datetime.now(timezone.utc) + timedelta(minutes=expires_delta or settings.access_token_expire_minutes)
     to_encode.update({"exp": expire})
     encoded_jwt = jwt.encode(to_encode, settings.secret_key, algorithm=settings.algorithm)
     return encoded_jwt

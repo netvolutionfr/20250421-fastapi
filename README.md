@@ -32,6 +32,21 @@ source .venv/bin/activate  # ou .venv\Scripts\activate sous Windows
 pip install -r requirements.txt
 ```
 
+4. Copier le fichier .env :
+
+```bash
+cp .env.example .env
+```
+
+Pour satisfaire les exigences de cybersécurité, modifier le fichier .env pour générer une clé.
+
+```bash
+python -c "import secrets; print(secrets.token_urlsafe(64))"
+```
+
+et recopier cette clé à la place de "changeme".
+
+
 ## Lancer le serveur
 
 ```bash

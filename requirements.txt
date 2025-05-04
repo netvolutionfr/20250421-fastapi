@@ -12,6 +12,8 @@ aiomysql>=0.2
 # Authentification
 python-jose>=3.4
 argon2-cffi
+passlib
+bcrypt
 
 # Pydantic v2
 pydantic>=2.11
